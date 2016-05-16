@@ -1,0 +1,114 @@
+<html xmlns:background-image="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="js/styles/default.css">
+    <script src="js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<!-- BASE RATA FLAITE
+            <div style="float: right; position:absolute; bottom:0; right:0px; border: none; box-shadow: none;">
+                <div style="width: 300px; height: 200px; padding-top: 20px; margin-bottom: -70px;background-image: url('img/comic-md.png'); background-repeat: no-repeat;">
+                    <div class="fragment dialog1" style="vertical-align: middle; font-size: 23px; width: 260px; margin: 10px; word-wrap: break-word; margin-top:0px;"></div>
+                    <div class="fragment dialog2" remove="dialog1" style="vertical-align: middle; font-size: 23px; width: 260px; margin: 10px; word-wrap: break-word; margin-top:0px;"></div>
+                  </div>
+                <img src="img/gopher-flaite-head-small.png" style="box-shadow: inherit; border: inherit;" >
+            </div>
+            -->
+<div class="reveal">
+    <div class="slides">
+        <section><h2>From `No` to `Go`...</h2><small>Una historia de casi amor, por Thiago Costa</small></section>
+        <section><text style="font-size: larger;">"No le digan a Ruby que estoy aquí..."</text></section>
+        <section style="width: 100%; height: 100%;">
+            <div><h2>Go</h2><h4>expressive, concise, clean, and efficient</h4></div>
+            <div>
+                <pre><code class="go">package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, 世界")
+}</code></pre>
+            </div>
+            <div style="float: right; position:absolute; bottom:0; right:0px; border: none; box-shadow: none;">
+                <div style="width: 300px; height: 200px; padding-top: 20px; margin-bottom: -70px;background-image: url('img/comic-md.png'); background-repeat: no-repeat;">
+                    <div class="dialog1" style="vertical-align: middle; font-size: 23px; width: 260px; margin: 10px; word-wrap: break-word; margin-top:0px;">Oe! Soy la rata flaite de Go</div>
+                    <div class="fragment dialog1" style="vertical-align: middle; font-size: 23px; width: 260px; margin: 10px; word-wrap: break-word; margin-top:0px;">y hoy vamo a habla un poco de esa weá</div>
+                    <div class="fragment dialog2" remove="dialog1" style="vertical-align: middle; font-size: 23px; width: 260px; margin: 10px; word-wrap: break-word; margin-top:0px;">Así que agarrense nomá en la silla</div>
+                    <div class="fragment dialog2" style="vertical-align: middle; font-size: 23px; width: 260px; margin: 10px; word-wrap: break-word; margin-top:0px;">y al tiro van dejar de ser weones</div>
+                </div>
+                <img src="img/gopher-flaite-head-small.png" style="box-shadow: inherit; border: inherit;" >
+            </div>
+        </section>
+        <section>
+            <div><h2>Cosas buenas para tener en cuenta antes de empezar</h2></div>
+            <ul>
+                <li>Elije un IDE</li>
+                <li>Instala el (posiblemente ya existente) plugin de Go para tu IDE de preferencia</li>
+                <li>Instala Go</li>
+            </ul>
+        </section>
+        <section>
+            <div><h2>Elije un IDE</h2></div>
+            <div>KISS / no brainer choice: Atom</div>
+            <img src="img/atom.png" width="500">
+        </section>
+        <section>
+            <div><h2>Instala el plugin de Go para tu IDE de preferencia</h2></div>
+            <div>Go-Plus (para Atom)</div>
+            <img src="img/atom-plugin.png" width="500">
+        </section>
+        <section style="width: 100%; height: 100%;">
+            <div><h2>Instala Go</h2></div>
+            <div class="fragment" data-fragment-index="1">
+                Para MacOs<pre><code class="bash">sh-3.2$ brew install go</code></pre>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+                <div style="float: right; position:absolute; bottom:0; right:0px; border: none; box-shadow: none;">
+                    <div style="width: 300px; height: 200px; padding-top: 20px; margin-bottom: -70px;background-image: url('img/comic-md.png'); background-repeat: no-repeat;">
+                        <div class="fragment dialog3" data-fragment-index="2" style="vertical-align: middle; font-size: 23px; width: 260px; margin: 10px; word-wrap: break-word; margin-top:0px;">Ella, la mac...</div>
+                        <div class="fragment dialog4" data-fragment-index="3" remove="dialog3" style="vertical-align: middle; font-size: 23px; width: 260px; margin: 10px; word-wrap: break-word; margin-top:0px;">el XP con los guacho</div>
+                        <div class="fragment" data-fragment-index="4" remove="dialog4" style="vertical-align: middle; font-size: 23px; width: 260px; margin: 10px; word-wrap: break-word; margin-top:0px;">en la local, weón, no la pongai en /bin</div>
+                    </div>
+                    <img src="img/gopher-flaite-head-small.png" style="box-shadow: inherit; border: inherit;" >
+                </div>
+            </div>
+            <div class="fragment" data-fragment-index="3">Para Windows: Baja el MSI desde <a href="https://golang.org/dl/">aquí</a></div>
+            <div class="fragment" data-fragment-index="4">Para distros linux, <a href="https://golang.org/dl/">baja el binario</a> y extrae en tu carpeta local</div>
+        </section>
+        <section style="width: 100%; height: 100%;">
+            <div><h2>Setea tu ambiente</h2></div>
+            <div>Go espera que tu ambiente esté seteado de la siguiente forma</div>
+            <div><pre><code class="bash">$GOPATH
+\src
+    \.. # Todos tus proyectos
+\pkg
+    \.. # Los paquetes que has instalado
+\bin
+    \.. # Los binarios que fueron compilados de tus proyectos</code></pre></div>
+        <div class="fragment">
+            <div style="float: right; position:absolute; bottom:0; right:0px; border: none; box-shadow: none;">
+                <div style="width: 300px; height: 200px; padding-top: 20px; margin-bottom: -70px;background-image: url('img/comic-md.png'); background-repeat: no-repeat;">
+                    <div style="vertical-align: middle; font-size: 23px; width: 260px; margin: 10px; word-wrap: break-word; margin-top:0px;">Ohh, la weá cuática...</div>
+                </div>
+                <img src="img/gopher-flaite-head-small.png" style="box-shadow: inherit; border: inherit;" >
+            </div>
+        </div>
+        </section>
+    </div>
+</div>
+<script src="js/reveal.js"></script>
+<script>
+    Reveal.initialize();
+    Reveal.addEventListener( 'fragmentshown', function( event ) {
+        if(event.fragment.getAttribute("remove")){
+            Array.prototype.filter.call(document.getElementsByClassName(event.fragment.getAttribute("remove")), function (element) {
+                element.style.display = "none";
+            });
+        }
+    } );
+</script>
+</body>
+</html>
