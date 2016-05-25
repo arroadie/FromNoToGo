@@ -97,6 +97,91 @@ func main() {
             </div>
         </div>
         </section>
+        <section style="width: 100%; height: 100%;">
+          <div><h2>La temida GOPATH</h2></div>
+          <div>Según la documentación de Go:</div>
+          <blockquote>The GOPATH environment variable specifies the location of your workspace. It is likely the only environment variable you'll need to set when developing Go code.</blockquote>
+          <div class="fragment">
+              <div style="float: right; position:absolute; bottom:0; right:0px; border: none; box-shadow: none;">
+                  <div style="width: 300px; height: 200px; padding-top: 20px; margin-bottom: -70px;background-image: url('img/comic-md.png'); background-repeat: no-repeat;">
+                      <div style="vertical-align: middle; font-size: 23px; width: 260px; margin: 10px; word-wrap: break-word; margin-top:0px;">Ohh, que le poní color a la weá...</div>
+                  </div>
+                  <img src="img/gopher-flaite-head-small.png" style="box-shadow: inherit; border: inherit;" >
+              </div>
+          </div>
+        </section>
+        <section>
+          <div><h2>Consejo de amigo</h2></div>
+          <div>Usa direnv => <a href="http://direnv.net/" target="_blank">http://direnv.net/</link></a> </div>
+          <div>y carga eso en tu archivo <i>.envrc</i><br> donde vayas a trabajar en Go</div>
+          <pre><code class="bash">export GOPATH=$(pwd)/mi_super_proyecto_piola
+export PATH="$PATH:$GOPATH/bin"</code></pre>
+        </section>
+        <section>
+          <div><h1>Y ahora, algo de Go...</h1></div>
+        </section>
+        <section>
+          <div><h2>Pausa para respiración</h2></div>
+        </section>
+        <section style="width: 100%; height: 100%;">
+          <img src="img/ruby.png" />
+          <div class="fragment">
+              <div style="float: right; position:absolute; bottom:0; right:0px; border: none; box-shadow: none;">
+                  <div style="width: 300px; height: 200px; padding-top: 20px; margin-bottom: -70px;background-image: url('img/comic-md.png'); background-repeat: no-repeat;">
+                      <div style="vertical-align: middle; font-size: 23px; width: 260px; margin: 10px; word-wrap: break-word; margin-top:0px;">Pero aweonado, eso es Ruby...</div>
+                  </div>
+                  <img src="img/gopher-flaite-head-small.png" style="box-shadow: inherit; border: inherit;" >
+              </div>
+          </div>
+        </section>
+        <section style="width: 100%; height: 100%;">
+          <div class="fragment fade-out" style="margin-top: -50px;">
+            <img src="img/RubyToGo.png" />
+          </div>
+          <div class="fragment roll-in" style="margin-top: -700px;">
+            <img src="img/RubyToGoFair.png" />
+          </div>
+        </section>
+        <section style="height: 100%; margin-left: -240px; width: 150%;">
+          <div>Comparando</div>
+          <img src="img/ruby.png" style="display: inline-block; width: 900px; margin-right: -150px; margin-left: -450px;" />
+          <img src="img/RubyToGoFair.png" style="display: inline-block; width: 800px; margin-left: -140px; margin-right: -500px;" />
+        </section>
+        <section>
+          <div>La hora de la verdad</div>
+          <img src="img/makeItReady.png" alt="ready" />
+        </section>
+        <section>
+          <div><h2>Conclusiones</h2><small>(agradables)</small><div>
+            <br>
+            <div class="fragment">Lenguaje robusto</div>
+            <div class="fragment">Más que production ready</div>
+            <div class="fragment">Sintax agradable</div>
+            <div class="fragment">Amplia librería</div>
+        </section>
+        <section>
+          <div><h2>Conclusiones</h2><small>(no tan agradables)<small>[pero discutibles]</small></small></div>
+          <br>
+          <div class="fragment">"Setup" no intuitivo al lado de otros lenguajes como Perl, Python o Ruby</div>
+          <div class="fragment">Documentación aun luce caótica</div>
+          <div class="fragment">Falta de una herramienta de desarrollo de soporte (IDE, REPL <small>[nativo]</small>)</div>
+        </section>
+        <section>
+          <div><h3>Bottomline</h3></div>
+          <i>El poder de C con la simplicidad de un lenguaje moderno y el poder de un lenguaje funcional</i>
+        </section>
+        <section style="width:150%; margin-left: -250px;">
+          <h2>Referencias:</h2>
+          <a href="http://golang.org/doc/" target="_blank"><i>golang.org/doc/</i></a><br>
+          <a href="https://learnxinyminutes.com/docs/go/" target="_blank"><i>learnxinyminutes.com/docs/go</i></a><br>
+          <a href="http://stackoverflow.com/questions/9277311/horizontally-aligning-divs" target="_blank"><i>www.google.com/?q=css+how+to+align+elements+horizontaly</i></a>
+        </section>
+        <section>
+          <div>Gracias</div><br>
+          <div><a href="https://twitter.com/arroadie"><img src="img/t-favicon.svg" alt="tweet" style="border: none;box-shadow: none;width: 30px; margin: 0px;" /></a><% @arroadie %> 
+          <a href="https://github.com/arroadie"><svg aria-hidden="true" class="octicon octicon-mark-github" height="28" version="1.1" viewBox="0 0 16 16" width="28"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59 0.4 0.07 0.55-0.17 0.55-0.38 0-0.19-0.01-0.82-0.01-1.49-2.01 0.37-2.53-0.49-2.69-0.94-0.09-0.23-0.48-0.94-0.82-1.13-0.28-0.15-0.68-0.52-0.01-0.53 0.63-0.01 1.08 0.58 1.23 0.82 0.72 1.21 1.87 0.87 2.33 0.66 0.07-0.52 0.28-0.87 0.51-1.07-1.78-0.2-3.64-0.89-3.64-3.95 0-0.87 0.31-1.59 0.82-2.15-0.08-0.2-0.36-1.02 0.08-2.12 0 0 0.67-0.21 2.2 0.82 0.64-0.18 1.32-0.27 2-0.27 0.68 0 1.36 0.09 2 0.27 1.53-1.04 2.2-0.82 2.2-0.82 0.44 1.1 0.16 1.92 0.08 2.12 0.51 0.56 0.82 1.27 0.82 2.15 0 3.07-1.87 3.75-3.65 3.95 0.29 0.25 0.54 0.73 0.54 1.48 0 1.07-0.01 1.93-0.01 2.2 0 0.21 0.15 0.46 0.55 0.38C13.71 14.53 16 11.53 16 8 16 3.58 12.42 0 8 0z"></path></svg></a></div>
+          <br><div>La presentación la puedes ver en <a href="http://arroadie.github.io/FromNoToGo/" target="_blank" >arroadie.github.io/FromNoToGo</a><br>y revisar / bajar / forkear en <a href="http://github.com/arroadie/FromNoToGo/" target="_blank" >github.com/arroadie/FromNoToGo</a> bajo la <a href="http://www.wtfpl.net/">WTFPL</a></div>
+        </section>
     </div>
 </div>
 <script src="js/reveal.js"></script>
@@ -108,8 +193,10 @@ func main() {
                 element.style.display = "none";
             });
         }
+        if(event.fragment.getAttribute("show")){
+            element.style.display = "block";
+        }
     } );
 </script>
 </body>
 </html>
->>>>>>> master
