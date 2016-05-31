@@ -109,7 +109,7 @@ func execute(app string, vals []string) {
 
   err = cmd.Wait()
   if err != nil {
-    fmt.Println("Error running", app, "Please report errors")
+    fmt.Println("Error running", app, "with arguments", vals, "Please report errors")
     fmt.Println(err)
     os.Exit(1)
   }
