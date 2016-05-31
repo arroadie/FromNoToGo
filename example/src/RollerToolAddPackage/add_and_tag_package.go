@@ -113,7 +113,7 @@ func main()  {
     os.Exit(1)
   }
 
-  cmd = exec.Command("git", "remote update && git pull")
+  cmd = exec.Command("git", "remote", "update")
   err = cmd.Start()
   if err != nil {
     fmt.Println("Error preparing repo update. Please report errors")
@@ -129,6 +129,8 @@ func main()  {
     os.Exit(1)
   }
 
+  execute("bin/ops-config-queue", []string{})
+
   cmd = exec.Command("bin/ops-config-queue")
   err = cmd.Start()
   if err != nil {
@@ -143,4 +145,22 @@ func main()  {
     fmt.Println(err)
     os.Exit(1)
   }
+}
+
+func execute(app string, vals []string) bool {
+  cmd := exec.Command(app, vals...)
+  err := cmd.Start()
+  if err != nil {
+    fmt.Println("Error preparing", app, "Please report errors")
+    fmt.Println(err)
+    os.Exit(1)
+  }
+
+  err = cmd.Wait()
+  if err != nil {
+    fmt.Println("Error running ops-config-queue. Please report errors")
+    fmt.Println(err)
+    os.Exit(1)
+  }
+  return true
 }
