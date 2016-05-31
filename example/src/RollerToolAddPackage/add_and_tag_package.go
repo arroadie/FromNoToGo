@@ -96,6 +96,7 @@ func main()  {
 func execute(app string, vals []string) {
   cmd := exec.Command(app, vals...)
   err := cmd.Start()
+
   if err != nil {
     fmt.Println("Error preparing", app, "Please report errors")
     fmt.Println(err)
