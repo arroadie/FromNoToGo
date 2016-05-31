@@ -124,6 +124,7 @@ func main()  {
   err = cmd.Wait()
   if err != nil {
     fmt.Println("Error updating repostory. Please report errors")
+    fmt.Println(cmd.Args)
     fmt.Println(err)
     os.Exit(1)
   }
