@@ -34,7 +34,6 @@ func main()  {
   }
 
   package_basename = strings.Split(package_name, "-")[0]
-  fmt.Println(package_basename)
 
   if strings.Contains(arguments[2], ".yml") {
     hostclass_name = "arguments[2]"
