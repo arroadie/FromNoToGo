@@ -116,5 +116,5 @@ func execute(app string, vals []string) {
     fmt.Println(err)
     os.Exit(1)
   }
-  fmt.Println("executing", cmd.Path, "with", cmd.Args[2:])
+  fmt.Println("executing", cmd.Path, "with", cmd.Args[1:])
 }
