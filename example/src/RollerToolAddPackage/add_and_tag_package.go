@@ -7,6 +7,7 @@ import "strings"
 import "github.com/smallfish/simpleyaml"
 import "io/ioutil"
 import "gopkg.in/yaml.v2"
+import "time"
 
 func main()  {
 
@@ -88,8 +89,10 @@ func main()  {
     fmt.Println(err)
   }
 
+  now := time.Now().Format("2006.01.02_15.04")
+
   execute("git", []string{"commit", "-am", fmt.Sprintf("'adding %s to %s'", package_name, hostclass_name)})
-  execute("git", []string{"tag", fmt.Sprintf("%s-$(date -u +'%Y.%m.%d_%H.%M')", hostclass_base_name), "-F",hostclass_name})
+  execute("git", []string{"tag", fmt.Sprintf("%s-%s", hostclass_base_name, now), "-F",hostclass_name})
   execute("git", []string{"push", "--tags"})
   execute("git", []string{"remote", "update"})
   execute("bin/ops-config-queue", []string{})
