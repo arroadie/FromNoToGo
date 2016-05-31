@@ -113,7 +113,7 @@ func main()  {
     os.Exit(1)
   }
 
-  cmd = exec.Command("git remote update && git pull")
+  cmd = exec.Command("git", "remote update && git pull")
   err = cmd.Start()
   if err != nil {
     fmt.Println("Error preparing repo update. Please report errors")
