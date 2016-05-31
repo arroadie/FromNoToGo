@@ -9,7 +9,8 @@ monitors:
     shell_command: /usr/local/libexec/check_disk_space_all -t min_free_pct=10:7
   http:
     run_every: 60
-    shell_command: /usr/local/libexec/check_http -U 'http://localhost:8080/status' -w 1 -c 2
+    shell_command: /usr/local/libexec/check_http -U 'http://localhost:8080/status'
+      -w 1 -c 2
   iostat:
     run_every: 60
     shell_command: /usr/local/libexec/check_iostat -t max_tps=750:1000
@@ -91,7 +92,7 @@ packages:
   - lsof-4.85
   - lsscsi-0.26
   - make-3.81
-  - mapproxy_mapproxy_service-2016.05.30_21.20
+  - mapproxy-2016.05.31_00.27
   - mcelog-1.0
   - monitord-2014.12.16_17.42
   - motd-2011.09.10_16.16
@@ -124,3 +125,4 @@ packages:
   - top-3.8beta1
   - traceroute-2.0.18
   - vim-7.3
+
