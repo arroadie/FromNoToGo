@@ -12,7 +12,6 @@ func main()  {
 
   arguments := os.Args
 
-
   if len(arguments) != 3 {
     fmt.Println("You cant run this script without arguments")
     fmt.Println("Usage:\nadd_and_tag_package package.tar.gz relative-path-to-hostclass.yml")
@@ -44,6 +43,9 @@ func main()  {
   if !strings.Contains(arguments[2], "hostclasses/") {
     hostclass_name = fmt.Sprintf("hostclasses/%s", hostclass_name)
   }
+
+  // Only safe to do that here (?)
+  hostclass_base_name := strings.Replace(strings.Replace(hostclass_name, "hostclasses/", "", 1), ".yml", "", 1)
 
   hostclass_file, err := ioutil.ReadFile(hostclass_name)
   if err != nil {
@@ -87,6 +89,8 @@ func main()  {
   }
 
   execute("git", []string{"commit", "-am", fmt.Sprintf("'adding %s to %s'", package_name, hostclass_name)})
+  execute("git", []string{"tag", fmt.Sprintf("%s-$(date -u +'%Y.%m.%d_%H.%M')", hostclass_base_name), "-F",hostclass_name})
+  execute("git", []string{"push", "--tags"})
   execute("git", []string{"remote", "update"})
   execute("bin/ops-config-queue", []string{})
 
