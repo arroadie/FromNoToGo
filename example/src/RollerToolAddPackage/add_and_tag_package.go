@@ -97,7 +97,7 @@ func main()  {
   execute("git", []string{"remote", "update"})
   execute("bin/ops-config-queue", []string{})
 
-  fmt.Println("Process rolled successfully")
+  fmt.Println("Process executed successfully")
 }
 
 func execute(app string, vals []string) {
@@ -116,4 +116,5 @@ func execute(app string, vals []string) {
     fmt.Println(err)
     os.Exit(1)
   }
+  fmt.Println("executing", cmd.Path, "with", cmd.Args)
 }
