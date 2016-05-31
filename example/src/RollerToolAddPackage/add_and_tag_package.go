@@ -54,17 +54,7 @@ func main()  {
 
   package_url := fmt.Sprintf("http://config/package/%s", package_name)
 
-  command := exec.Command("wget", "-S", "--spider", package_url)
-  err = command.Start()
-  if err != nil {
-    fmt.Println("Error retrieving file. Please check that it was properly uploaded")
-    os.Exit(1)
-  }
-  err = command.Wait()
-  if err != nil {
-    fmt.Println("File isn't available. Please check that it was properly uploaded. Server returned", err)
-    os.Exit(1)
-  }
+  execute("wget", []string{"-S", "--spider", package_url})
 
   hc_yaml, err := simpleyaml.NewYaml(hostclass_file)
   if err != nil {
@@ -97,57 +87,13 @@ func main()  {
     fmt.Println(err)
   }
 
-  cmd := exec.Command("git", "commit", "-am", fmt.Sprintf("'adding %s to %s'", package_name, hostclass_name))
-  err = cmd.Start()
-  if err != nil {
-    fmt.Println("Error generating commit. Please report errors")
-    fmt.Println(err)
-    os.Exit(1)
-  }
-
-  err = cmd.Wait()
-  if err != nil {
-    fmt.Println("Error commiting changes. Please report errors")
-    fmt.Println(cmd.Args)
-    fmt.Println(err)
-    os.Exit(1)
-  }
-
-  cmd = exec.Command("git", "remote", "update")
-  err = cmd.Start()
-  if err != nil {
-    fmt.Println("Error preparing repo update. Please report errors")
-    fmt.Println(err)
-    os.Exit(1)
-  }
-
-  err = cmd.Wait()
-  if err != nil {
-    fmt.Println("Error updating repostory. Please report errors")
-    fmt.Println(cmd.Args)
-    fmt.Println(err)
-    os.Exit(1)
-  }
-
+  execute("git", []string{"commit", "-am", fmt.Sprintf("'adding %s to %s'", package_name, hostclass_name)})
+  execute("git", []string{"remote", "update"})
   execute("bin/ops-config-queue", []string{})
 
-  cmd = exec.Command("bin/ops-config-queue")
-  err = cmd.Start()
-  if err != nil {
-    fmt.Println("Error preparing ops-config-queue. Please report errors")
-    fmt.Println(err)
-    os.Exit(1)
-  }
-
-  err = cmd.Wait()
-  if err != nil {
-    fmt.Println("Error running ops-config-queue. Please report errors")
-    fmt.Println(err)
-    os.Exit(1)
-  }
 }
 
-func execute(app string, vals []string) bool {
+func execute(app string, vals []string) {
   cmd := exec.Command(app, vals...)
   err := cmd.Start()
   if err != nil {
@@ -158,9 +104,8 @@ func execute(app string, vals []string) bool {
 
   err = cmd.Wait()
   if err != nil {
-    fmt.Println("Error running ops-config-queue. Please report errors")
+    fmt.Println("Error running", app, "Please report errors")
     fmt.Println(err)
     os.Exit(1)
   }
-  return true
 }
